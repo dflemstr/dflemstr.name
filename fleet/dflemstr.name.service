@@ -1,0 +1,13 @@
+[Unit]
+Description=Web application for dflemstr.name
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill dflemstr.name
+ExecStartPre=-/usr/bin/docker rm dflemstr.name
+ExecStartPre=/usr/bin/docker pull dflemstr/dflemstr.name
+ExecStart=/usr/bin/docker run --name dflemstr.name -p 80:80 dflemstr/dflemstr.name
+ExecStop=/usr/bin/docker stop dflemstr.name
+
