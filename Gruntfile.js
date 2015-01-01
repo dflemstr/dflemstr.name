@@ -170,7 +170,9 @@ module.exports = function (grunt) {
         ignorePath:  /\.\.\//,
         exclude: [
           'bower_components/bootstrap-sass-official/assets/javascripts',
-          'bower_components/jquery/dist'
+          'bower_components/jquery/dist',
+          'bower_components/angular',
+          'bower_components/angular-route'
         ]
       },
       sass: {
