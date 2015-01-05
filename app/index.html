@@ -35,7 +35,7 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="/styles/main.css">
     <!-- endbuild -->
 
     <base href="/">
@@ -72,26 +72,32 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div ng-if="big" class="site-heading">
-              <h1>{{title}}</h1>
-              <span class="subheading">{{subtitle}}</span>
+            <div ng-if="page.info.big" class="site-heading">
+              <h1>{{page.info.title}}</h1>
+              <span class="subheading">{{page.info.subtitle}}</span>
             </div>
-            <div ng-if="!big" class="post-heading">
-              <h1>{{title}}</h1>
-              <h2 class="subheading">{{subtitle}}</h2>
+            <div ng-if="!page.info.big" class="post-heading">
+              <h1>{{page.info.title}}</h1>
+              <h2 class="subheading">{{page.info.subtitle}}</h2>
+              <span ng-if="page.info.author" class="meta">
+                By <strong>{{page.info.author.name}}</strong>
+                <span ng-if="page.info.date">
+                  on {{page.info.date | amDateFormat:'dddd, MMMM Do YYYY'}}
+                </span>
+              </span>
             </div>
           </div>
         </div>
       </div>
     </header>
 
-    <div class="container">
+    <main class="container">
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          <main ng-view=""></main>
+          <div ng-view=""></div>
         </div>
       </div>
-    </div>
+    </main>
 
     <hr>
 
@@ -117,13 +123,19 @@
     <!-- bower:js -->
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/delaunay-fast/delaunay.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
     <!-- endbower -->
+    <script src="bower_components/angular-moment/angular-moment.js"></script>
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/index.js"></script>
     <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/services/posts.js"></script>
+    <script src="scripts/services/postsStore.js"></script>
+    <script src="scripts/services/page.js"></script>
+    <script src="scripts/controllers/post.js"></script>
     <!-- endbuild -->
   </body>
 </html>

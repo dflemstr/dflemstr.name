@@ -1,0 +1,2 @@
+<%= site.htmlFor(_(site.posts).last()) %>
+

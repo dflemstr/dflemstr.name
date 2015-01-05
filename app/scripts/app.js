@@ -10,7 +10,8 @@
  */
 angular
   .module('dflemstrApp', [
-    'ngRoute'
+    'ngRoute',
+    'angularMoment'
   ])
   .config(function ($locationProvider, $routeProvider) {
     $locationProvider
@@ -25,15 +26,9 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/this', {
-        title: 'Making websites',
-        subtitle: 'How hard can it be?',
-        templateUrl: 'views/this.html'
-      })
-      .when('/skills', {
-        title: 'Skills',
-        subtitle: 'if you can call it that',
-        templateUrl: 'views/skills.html'
+      .when('/post/:id', {
+        templateUrl: 'views/post.html',
+        controller: 'PostCtrl'
       })
       .otherwise({
         redirectTo: '/'

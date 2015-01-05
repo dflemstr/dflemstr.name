@@ -8,16 +8,8 @@
  * Controller of the dflemstrApp
  */
 angular.module('dflemstrApp')
-  .controller('IndexCtrl', function ($scope, $window) {
-    $scope.title = 'dflemstr';
-    $scope.subtitle = 'archetypal chaos';
-    $scope.big = true;
-
-    $scope.$on('$routeChangeSuccess', function (event, current, previous) {
-      $scope.title = current.$$route.title;
-      $scope.subtitle = current.$$route.subtitle;
-      $scope.big = current.$$route.big || false;
-    });
+  .controller('IndexCtrl', function ($scope, $window, page) {
+    $scope.page = page;
 
     var previousTop = 0;
     angular.element($window).bind('scroll', function () {

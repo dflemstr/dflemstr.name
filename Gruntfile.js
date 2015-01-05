@@ -29,8 +29,43 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: appConfig,
 
+    markdown: {
+      options: {
+        author: 'David Flemström',
+        title: 'dflemstr.name',
+        description: '',
+        url: 'http://dflemstr.name',
+        layouts: {
+          wrapper: '<%= yeoman.app %>/templates/wrapper.us',
+          index: '<%= yeoman.app %>/templates/index.us',
+          post: '<%= yeoman.app %>/templates/post.us',
+          // page: '<%= yeoman.app %>/templates/page.us',
+          archive: '<%= yeoman.app %>/templates/archive.us'
+        },
+        paths: {
+          posts: '<%= yeoman.app %>/posts/**/*.md',
+          pages: '<%= yeoman.app %>/pages/**/*.md',
+          archive: 'scripts/services/postsStore.js'
+        }
+      },
+      dev: {
+        dest: '.tmp'
+      },
+      dist: {
+        dest: 'dist'
+      }
+    },
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
+      markdown: {
+        files: [
+          '<%= yeoman.app %>/posts/**/*.md',
+          '<%= yeoman.app %>/pages/**/*.md',
+          '<%= yeoman.app %>/templates/*.us'
+        ],
+        tasks: ['markdown:dev']
+      },
       bower: {
         files: ['bower.json'],
         tasks: ['wiredep']
@@ -408,6 +443,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'wiredep',
+      'markdown:dev',
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
@@ -431,6 +467,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
+    'markdown:dist',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',

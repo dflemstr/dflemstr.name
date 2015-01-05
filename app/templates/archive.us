@@ -1,0 +1,19 @@
+<%
+var output = {};
+
+_(site.posts).chain().reverse().each(function(post) {
+  var path = post.htmlPath();
+
+  var id = path.substring('posts/'.length, path.length - '.html'.length);
+  var metadata = {};
+
+  for (var attribute in post.attributes) {
+    if (post.attributes.hasOwnProperty(attribute)) {
+      metadata[attribute] = post.attributes[attribute];
+    }
+  }
+
+  output[id] = metadata;
+});
+
+%>angular.module('dflemstrApp').factory('postsStore',function(){return {all:<%= JSON.stringify(output) %>};});

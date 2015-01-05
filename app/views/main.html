@@ -14,8 +14,9 @@
 
   <h2>Read more about...</h2>
   <ul>
-    <li><a href="/skills">What I do</a></li>
-    <li><a href="/this">How hard it can be to make a web site</a></li>
+    <li ng-repeat="(id, post) in posts.all">
+      <a href="/post/{{id}}">{{post.linkText || post.title}}</a>
+    </li>
   </ul>
 
   <h2>...or find me</h2>

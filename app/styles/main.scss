@@ -1,6 +1,6 @@
 @import url('//weloveiconfonts.com/api/?family=entypo');
 @import url('//brick.a.ssl.fastly.net/Lato:400,400i,700,700i:f');
-@import url('//brick.a.ssl.fastly.net/Aleo:300,300i,400,400i:f');
+@import url('//brick.a.ssl.fastly.net/Aleo:400,400i,700,700i:f');
 @import url('//brick.a.ssl.fastly.net/Source Code Pro:300,300i,400,400i:f');
 
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
@@ -18,6 +18,9 @@ $code-bg: #eee;
 // bower:scss
 // endbower
 
+// Highlight.js
+@import "highlight.scss";
+
 // Core variables and mixins
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap/variables";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap/mixins";
@@ -31,6 +34,7 @@ $code-bg: #eee;
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap/scaffolding";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap/type";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap/code";
+// @import "code.scss";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap/grid";
 // @import "bootstrap-sass-official/assets/stylesheets/bootstrap/tables";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap/forms";
