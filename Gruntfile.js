@@ -52,7 +52,7 @@ module.exports = function (grunt) {
         dest: '.tmp'
       },
       dist: {
-        dest: 'dist'
+        dest: '.tmp'
       }
     },
 
@@ -400,6 +400,11 @@ module.exports = function (grunt) {
           cwd: '.',
           src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
           dest: '<%= yeoman.dist %>'
+        }, {
+          expand: true,
+          cwd: '.tmp',
+          dest: '<%= yeoman.dist %>',
+          src: ['posts/*']
         }]
       },
       styles: {
