@@ -20,9 +20,6 @@ angular
 
     $routeProvider
       .when('/', {
-        title: 'dflemstr',
-        subtitle: '',
-        big: true,
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })

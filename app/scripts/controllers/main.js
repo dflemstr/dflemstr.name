@@ -11,6 +11,7 @@ angular.module('dflemstrApp')
   .controller('MainCtrl', function ($scope, posts, page) {
     page.info = {
       title: 'archetypal chaos',
+      subtitle: 'ramblings about technology and other things',
       big: true
     };
 
